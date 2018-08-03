@@ -111,8 +111,8 @@ function iap_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'iap' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h2 class="widget-title"><span><i></i>',
+		'after_title'   => '<i></i></span></h2>',
 	) );
 }
 add_action( 'widgets_init', 'iap_widgets_init' );
@@ -123,7 +123,7 @@ add_action( 'widgets_init', 'iap_widgets_init' );
 function iap_scripts() {
 	wp_enqueue_style( 'iap-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'iap-gfont', 'https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700&amp;subset=latin-ext' );
+	wp_enqueue_style( 'iap-gfont', 'https://fonts.googleapis.com/css?family=Lato:400,700,700i|Old+Standard+TT:700&amp;subset=latin-ext' );
 
 	wp_enqueue_script( 'iap-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
