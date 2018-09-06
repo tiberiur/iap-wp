@@ -407,6 +407,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Old Standard TT', sans-serif;	
 }
 
+h2 {
+	font-size: 36px;
+}
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -471,6 +475,8 @@ html {
 
 body {
 	background: #fff;
+	font-family: Lato, sans-serif;
+	font-size: 15px;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -620,11 +626,11 @@ a {
 }
 
 a:visited {
-	color: purple;
+	color: #000;
 }
 
 a:hover, a:focus, a:active {
-	color: midnightblue;
+	color: #f8c268;
 }
 
 a:focus {
@@ -644,6 +650,10 @@ a:hover, a:active {
 	border-bottom: 1px solid lightgray;
 	padding: 3px 0;
 	margin-top: 20px;
+	font-family: 'Old Standard TT', serif;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 .main-navigation ul {
@@ -691,14 +701,15 @@ a:hover, a:active {
 
 .main-navigation li:after {
 	content: ' ';
-	width: 7px;
-	height: 7px;
+	width: 8px;
+	height: 8px;
 	display: block;
 	border: 1px solid lightgray;
-	border-radius: 50%;
+	border-radius: 2px;
 	position: absolute;
-	top: 13px;
+	top: 20px;
 	right: 0;
+	transform: rotate(45deg);
 }
 
 .main-navigation li:last-child {
@@ -713,15 +724,15 @@ a:hover, a:active {
 	display: block;
 	text-decoration: none;
 	color: #000;
-	padding: 5px 15px;
+	padding: 16px 15px 13px;
 }
 
 .main-navigation a:hover {
-	color: blue;
+	color: #f8c268;
 }
 
 .main-navigation li.current-menu-item a {
-	color: blue;
+	color: #f8c268;
 }
 
 /* Small menu. */
@@ -873,12 +884,123 @@ a:hover, a:active {
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 0 85px;
+	border: 1px solid #dedede;
+	padding: 0 15px 20px;
 	/* Make sure select elements fit in widgets. */
 }
 
-.widget select {
-	max-width: 100%;
+.widget:last-child {
+	margin: 0;
+}
+
+.widget-title {
+	position: relative;
+	text-align: center;
+	margin: -20px 0 20px;
+	z-index: 2;
+	font-size: 20px;
+}
+.widget-title span {
+	position: relative;
+	border: 1px solid #dedede;
+	background: #FFF;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	text-transform: uppercase;
+	padding: 11px 5px 6px; /* headings fonts had a weird lineheight */
+}
+.widget-title span:before {
+	content: ' ';
+	position: absolute;
+	top: -7px;
+	left: -7px;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+	border: 1px solid #dedede;
+	z-index: -1;
+}
+.widget-title i {
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+	background: #fad393;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 10px 5px;
+	transform: rotate(45deg);
+	border-radius: 2px;
+}
+.widget ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.widget li {
+	border-bottom: 1px solid #ededed;
+}
+.widget li:last-child {
+	border-bottom: none;
+}
+.widget li a {
+	display: block;
+	padding: 12px 0;
+	font-weight: 700;
+}
+.widget p:last-child {
+	margin-bottom: 0;
+}
+
+
+/* Widget: Categories */
+.widget_categories li {
+	display: flex;
+	align-items: center;
+	color: #999999;
+	font-size: 14px;
+	font-style: italic;
+}
+.widget_categories li a {
+	margin-right: auto;
+	font-style: normal;
+	font-size: 15px;
+}
+
+/* Widget: Latest post */
+.widget_recent_entries li {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.widget_recent_entries li:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.widget_recent_entries li a {
+	font-family: 'Old Standard TT', serif;
+	padding: 0;
+	font-size: 18px;
+	font-weight: 700;
+}
+.widget_recent_entries li span {
+	font-size: 12px;
+	color: 999999;
+}
+
+/* Widget: Tag cloud */
+.tag-cloud-link {
+	border: 1px solid #dedede;
+	font-size: 12px !important;
+	color: #999999;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 5px 10px;
+	display: inline-block;
+	margin: 0 6px 10px;
+}
+.tag-cloud-link:hover {
+	border-color: #f8c268;
 }
 
 /*--------------------------------------------------------------
@@ -906,13 +1028,13 @@ a:hover, a:active {
 }
 .entry-header .entry-title:after {
 	position: absolute;
-	bottom:0;
-	left:50%;
-	transform:translateX(-50%);
-	width:50px;
-	height: 2px;
-	background:yellow;
-	content:" ";
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60px;
+	height: 1px;
+	background:#f8c268;
+	content: " ";
 }
 
 .page-content,
@@ -922,19 +1044,21 @@ a:hover, a:active {
 }
 .entry-meta {
 	text-align: center;
-	margin:20px 0;
+	margin: 20px 0;
+	font-size: 12px;
 }
 .entry-meta .posted-on {
 	vertical-align: middle;
 }
 .entry-meta .separator {
-	width: 7px;
-	height: 7px;
+	width: 8px;
+	height: 8px;
 	margin:0 20px;
 	border:1px solid #e3e3e3;
-	border-radius:50%;
+	border-radius: 2px;
 	display: inline-block;
 	vertical-align: middle;
+	transform: rotate(45deg);
 }
 .entry-meta .post-categories {
 	list-style: none;
@@ -946,9 +1070,20 @@ a:hover, a:active {
 .entry-meta .post-categories li {
 	display: inline-block;
 }
+.entry-meta .post-categories li + li:before {
+	content: ', ';
+	color: #999999;
+}
 .entry-meta .post-categories a {
 	text-transform: uppercase;
-	color:orangered;
+	color: #f8c268;
+	font-size: 13px;
+}
+.entry-meta .post-categories a:hover {
+	text-decoration: underline;
+}
+.entry-meta .posted-on a {
+	color: #999999;
 }
 .page-links {
 	clear: both;
@@ -1085,17 +1220,43 @@ object {
 	padding-right: 15px;	
 }
 
-.site-content {
-	overflow: hidden;
-}
 .site-content .content-area {
 	float: left;
 	width: 70%;
+	padding-right: 70px;
 }
 .site-content .widget-area {
 	float: left;
 	width: 30%;
+	padding-top: 25px;
 }
 .site-content .widget-area a {
 	word-break: break-all;
 }
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+ .cf:before,
+ .cf:after {
+	 content: " "; /* 1 */
+	 display: table; /* 2 */
+ }
+ 
+ .cf:after {
+	 clear: both;
+ }
+ 
+ /**
+  * For IE 6/7 only
+  * Include this rule to trigger hasLayout and contain floats.
+  */
+ .cf {
+	 *zoom: 1;
+ }
